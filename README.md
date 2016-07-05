@@ -7,7 +7,7 @@ Deployment Target 7.0
 
 一、使用方法：
     
-    1、初始化LWTransitionAnimator，转场动画管理器
+1、初始化LWTransitionAnimator，转场动画管理器
 
     代码方法：
 
@@ -29,7 +29,7 @@ Deployment Target 7.0
     c、让 LWTransitionAnimator 的navigationController 指向改导航栏。
 
 
-    2、在 LWTransitionAnimator 对象中，navigationController(_:animationControllerForOperation:fromViewController:toViewController:)方法里返回需要的转场动画。
+2、在 LWTransitionAnimator 对象中，navigationController(_:animationControllerForOperation:fromViewController:toViewController:)方法里返回需要的转场动画。
 
     func navigationController(navigationController: UINavigationController,
                               animationControllerForOperation operation: UINavigationControllerOperation,

@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -34,7 +33,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zy-4Q-fes">
-                                <rect key="frame" x="56" y="281" width="208" height="247"/>
+                                <rect key="frame" x="60" y="328" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="4UT-NN-cRy"/>
+                                    <constraint firstAttribute="height" constant="200" id="WZ3-cR-B4J"/>
+                                </constraints>
                                 <state key="normal" backgroundImage="pic_temportrait_03"/>
                                 <connections>
                                     <segue destination="EB9-yf-AlT" kind="show" id="egi-fK-LjT"/>
@@ -51,15 +54,13 @@
                         <color key="backgroundColor" red="0.96868565070000001" green="1" blue="0.42614033499999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Pgd-di-p8q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FKr-n0-PWC"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1zy-4Q-fes" secondAttribute="bottom" constant="40" id="IxP-c6-MQO"/>
                             <constraint firstItem="mSQ-8I-EIw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JMv-xk-9Qh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1zy-4Q-fes" secondAttribute="trailing" constant="40" id="QbO-EB-Oqe"/>
-                            <constraint firstItem="1zy-4Q-fes" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="Re3-QD-bDk"/>
+                            <constraint firstItem="1zy-4Q-fes" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KsZ-23-3CF"/>
                             <constraint firstItem="Fi1-kI-2PH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TCT-gQ-aPW"/>
                             <constraint firstItem="mSQ-8I-EIw" firstAttribute="top" secondItem="Pgd-di-p8q" secondAttribute="bottom" constant="16" id="WXW-uZ-Tbp"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1zy-4Q-fes" secondAttribute="bottom" constant="40" id="oBY-IZ-kjH"/>
                             <constraint firstItem="Pgd-di-p8q" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.4" id="r1N-h7-TgL"/>
                             <constraint firstItem="Fi1-kI-2PH" firstAttribute="top" secondItem="mSQ-8I-EIw" secondAttribute="bottom" constant="16" id="wcM-wQ-hP2"/>
-                            <constraint firstItem="1zy-4Q-fes" firstAttribute="top" secondItem="Fi1-kI-2PH" secondAttribute="bottom" constant="60" id="zuB-YK-d1P"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JVt-eD-Ymj"/>
@@ -93,7 +94,7 @@
         <!--Navigation Controller-->
         <scene sceneID="fgH-Og-KEA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Iwm-5A-J6C" customClass="NavigationController" customModule="LWTransitionAnimator" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Iwm-5A-J6C" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="K08-ds-zce">
@@ -102,11 +103,16 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+                        <outlet property="delegate" destination="yuK-p4-P5f" id="rAp-j8-Twa"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Vf2-qy-bRa"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DHj-yj-Uvz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="yuK-p4-P5f" customClass="LWTransitionAnimator" customModule="LWTransitionAnimator" customModuleProvider="target"/>
+                <customObject id="yuK-p4-P5f" customClass="LWTransitionAnimator" customModule="LWTransitionAnimator" customModuleProvider="target">
+                    <connections>
+                        <outlet property="navigationController" destination="Iwm-5A-J6C" id="6xi-fe-8h4"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="-361" y="477"/>
         </scene>

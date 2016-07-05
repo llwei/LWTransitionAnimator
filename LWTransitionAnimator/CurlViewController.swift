@@ -2,7 +2,7 @@
 //  CurlViewController.swift
 //  LWTransitionAnimator
 //
-//  Created by 赖灵发 on 16/7/5.
+//  Created by 赖灵伟 on 16/7/5.
 //  Copyright © 2016年 lailingwei. All rights reserved.
 //
 

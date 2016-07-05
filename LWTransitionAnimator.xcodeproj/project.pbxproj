@@ -18,7 +18,6 @@
 		9DDCD40D1D2A25B800646C00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DDCD40B1D2A25B800646C00 /* LaunchScreen.storyboard */; };
 		9DDCD4161D2A7FC200646C00 /* LWTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDCD4151D2A7FC200646C00 /* LWTransitionAnimator.swift */; };
 		9DDCD4191D2A85D100646C00 /* LWRippleAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDCD4181D2A85D100646C00 /* LWRippleAnimator.swift */; };
-		9DDCD41B1D2AB25200646C00 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDCD41A1D2AB25200646C00 /* NavigationController.swift */; };
 		9DDCD4231D2AC6D200646C00 /* LWSystemTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDCD4221D2AC6D200646C00 /* LWSystemTransitionAnimator.swift */; };
 		9DDCD4251D2AC95000646C00 /* LWMagicMoveAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDCD4241D2AC95000646C00 /* LWMagicMoveAnimator.swift */; };
 /* End PBXBuildFile section */
@@ -37,7 +36,6 @@
 		9DDCD40E1D2A25B800646C00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DDCD4151D2A7FC200646C00 /* LWTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWTransitionAnimator.swift; sourceTree = "<group>"; };
 		9DDCD4181D2A85D100646C00 /* LWRippleAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWRippleAnimator.swift; sourceTree = "<group>"; };
-		9DDCD41A1D2AB25200646C00 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		9DDCD4221D2AC6D200646C00 /* LWSystemTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWSystemTransitionAnimator.swift; sourceTree = "<group>"; };
 		9DDCD4241D2AC95000646C00 /* LWMagicMoveAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMagicMoveAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,7 +72,6 @@
 			children = (
 				9DDCD4141D2A3ACF00646C00 /* Class */,
 				9DDCD4021D2A25B800646C00 /* AppDelegate.swift */,
-				9DDCD41A1D2AB25200646C00 /* NavigationController.swift */,
 				9DDCD4041D2A25B800646C00 /* ViewController.swift */,
 				9D4EF0511D2B5DA8007BD0B6 /* RippleViewController.swift */,
 				9D4EF0531D2B5E2D007BD0B6 /* FlipViewController.swift */,
@@ -186,7 +183,6 @@
 				9DDCD4231D2AC6D200646C00 /* LWSystemTransitionAnimator.swift in Sources */,
 				9DDCD4031D2A25B800646C00 /* AppDelegate.swift in Sources */,
 				9D4EF0581D2B6C38007BD0B6 /* MagicMoveViewController.swift in Sources */,
-				9DDCD41B1D2AB25200646C00 /* NavigationController.swift in Sources */,
 				9DDCD4251D2AC95000646C00 /* LWMagicMoveAnimator.swift in Sources */,
 				9DDCD4161D2A7FC200646C00 /* LWTransitionAnimator.swift in Sources */,
 				9DDCD4191D2A85D100646C00 /* LWRippleAnimator.swift in Sources */,

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -18,43 +19,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSQ-8I-EIw">
+                                <rect key="frame" x="112" y="145" width="96" height="30"/>
+                                <state key="normal" title="FlipFromRight"/>
+                                <connections>
+                                    <segue destination="A0S-iz-boU" kind="show" id="GFa-gr-LOa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fi1-kI-2PH">
+                                <rect key="frame" x="136" y="191" width="48" height="30"/>
+                                <state key="normal" title="CurlUp"/>
+                                <connections>
+                                    <segue destination="PwM-2i-wpt" kind="show" id="gJI-EQ-0pQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zy-4Q-fes">
+                                <rect key="frame" x="56" y="281" width="208" height="247"/>
+                                <state key="normal" backgroundImage="pic_temportrait_03"/>
+                                <connections>
+                                    <segue destination="EB9-yf-AlT" kind="show" id="egi-fK-LjT"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgd-di-p8q">
                                 <rect key="frame" x="139" y="99" width="43" height="30"/>
                                 <state key="normal" title="Ripple"/>
                                 <connections>
-                                    <segue destination="BWk-Am-qHW" kind="show" id="f7r-e6-Huu"/>
+                                    <segue destination="MHc-nY-a9s" kind="show" id="Uh4-Lg-4XJ"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96868565070000001" green="1" blue="0.42614033499999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Pgd-di-p8q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FKr-n0-PWC"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1zy-4Q-fes" secondAttribute="bottom" constant="40" id="IxP-c6-MQO"/>
+                            <constraint firstItem="mSQ-8I-EIw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JMv-xk-9Qh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1zy-4Q-fes" secondAttribute="trailing" constant="40" id="QbO-EB-Oqe"/>
+                            <constraint firstItem="1zy-4Q-fes" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="Re3-QD-bDk"/>
+                            <constraint firstItem="Fi1-kI-2PH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TCT-gQ-aPW"/>
+                            <constraint firstItem="mSQ-8I-EIw" firstAttribute="top" secondItem="Pgd-di-p8q" secondAttribute="bottom" constant="16" id="WXW-uZ-Tbp"/>
                             <constraint firstItem="Pgd-di-p8q" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.4" id="r1N-h7-TgL"/>
+                            <constraint firstItem="Fi1-kI-2PH" firstAttribute="top" secondItem="mSQ-8I-EIw" secondAttribute="bottom" constant="16" id="wcM-wQ-hP2"/>
+                            <constraint firstItem="1zy-4Q-fes" firstAttribute="top" secondItem="Fi1-kI-2PH" secondAttribute="bottom" constant="60" id="zuB-YK-d1P"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JVt-eD-Ymj"/>
+                    <connections>
+                        <outlet property="imgButton" destination="1zy-4Q-fes" id="es8-AA-MPe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="73" y="477"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="RFF-0A-JDg">
+        <!--Ripple-->
+        <scene sceneID="XJb-c8-p6e">
             <objects>
-                <viewController id="BWk-Am-qHW" sceneMemberID="viewController">
+                <viewController id="MHc-nY-a9s" customClass="RippleViewController" customModule="LWTransitionAnimator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hbs-BL-VQf"/>
-                        <viewControllerLayoutGuide type="bottom" id="shj-nf-Dzj"/>
+                        <viewControllerLayoutGuide type="top" id="DHY-xO-zmb"/>
+                        <viewControllerLayoutGuide type="bottom" id="ThY-ts-Ix9"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="27a-V8-rsu">
+                    <view key="view" contentMode="scaleToFill" id="KAF-aB-QFX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.15280298270000001" green="0.28089336720000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Ripple" id="z78-KM-Sz3"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eo3-yg-bDF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gDU-Vj-4ez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="513" y="477"/>
+            <point key="canvasLocation" x="631" y="-144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fgH-Og-KEA">
@@ -76,5 +110,78 @@
             </objects>
             <point key="canvasLocation" x="-361" y="477"/>
         </scene>
+        <!--Flip-->
+        <scene sceneID="pCX-xH-E5V">
+            <objects>
+                <viewController id="A0S-iz-boU" customClass="FlipViewController" customModule="LWTransitionAnimator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jtM-ea-Van"/>
+                        <viewControllerLayoutGuide type="bottom" id="Sk7-0d-ee6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8dy-bk-dIt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Flip" id="ZrS-QA-v5V"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1YF-he-FYX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="631" y="484"/>
+        </scene>
+        <!--Magic Move View Controller-->
+        <scene sceneID="Zha-CN-ufv">
+            <objects>
+                <viewController id="EB9-yf-AlT" customClass="MagicMoveViewController" customModule="LWTransitionAnimator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jmX-l5-LAp"/>
+                        <viewControllerLayoutGuide type="bottom" id="BdD-Qv-nBH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gRl-Rf-iDO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic_temportrait_03" translatesAutoresizingMaskIntoConstraints="NO" id="l7z-kr-jaw">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="l7z-kr-jaw" secondAttribute="trailing" id="6fl-Uf-kx6"/>
+                            <constraint firstItem="l7z-kr-jaw" firstAttribute="top" secondItem="jmX-l5-LAp" secondAttribute="bottom" id="RQ4-95-qVg"/>
+                            <constraint firstItem="l7z-kr-jaw" firstAttribute="leading" secondItem="gRl-Rf-iDO" secondAttribute="leading" id="bGI-PP-dBk"/>
+                            <constraint firstItem="BdD-Qv-nBH" firstAttribute="top" secondItem="l7z-kr-jaw" secondAttribute="bottom" id="bU2-xY-T3B"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imgView" destination="l7z-kr-jaw" id="rI4-7S-xaj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RSu-Uj-f2V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="631" y="1131"/>
+        </scene>
+        <!--Curl-->
+        <scene sceneID="UOy-G8-a8b">
+            <objects>
+                <viewController id="PwM-2i-wpt" customClass="CurlViewController" customModule="LWTransitionAnimator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XCb-km-7nC"/>
+                        <viewControllerLayoutGuide type="bottom" id="GfU-5w-eTe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uoE-uD-gnq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Curl" id="TEe-BO-eDw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dlJ-Te-RZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1041" y="484"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="pic_temportrait_03" width="280" height="280"/>
+    </resources>
 </document>

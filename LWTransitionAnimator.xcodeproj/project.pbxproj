@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D4EF0521D2B5DA8007BD0B6 /* RippleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EF0511D2B5DA8007BD0B6 /* RippleViewController.swift */; };
+		9D4EF0541D2B5E2D007BD0B6 /* FlipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EF0531D2B5E2D007BD0B6 /* FlipViewController.swift */; };
+		9D4EF0561D2B5E3A007BD0B6 /* CurlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EF0551D2B5E3A007BD0B6 /* CurlViewController.swift */; };
+		9D4EF0581D2B6C38007BD0B6 /* MagicMoveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EF0571D2B6C38007BD0B6 /* MagicMoveViewController.swift */; };
 		9DDCD4031D2A25B800646C00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDCD4021D2A25B800646C00 /* AppDelegate.swift */; };
 		9DDCD4051D2A25B800646C00 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDCD4041D2A25B800646C00 /* ViewController.swift */; };
 		9DDCD4081D2A25B800646C00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DDCD4061D2A25B800646C00 /* Main.storyboard */; };
@@ -20,6 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D4EF0511D2B5DA8007BD0B6 /* RippleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleViewController.swift; sourceTree = "<group>"; };
+		9D4EF0531D2B5E2D007BD0B6 /* FlipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlipViewController.swift; sourceTree = "<group>"; };
+		9D4EF0551D2B5E3A007BD0B6 /* CurlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurlViewController.swift; sourceTree = "<group>"; };
+		9D4EF0571D2B6C38007BD0B6 /* MagicMoveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicMoveViewController.swift; sourceTree = "<group>"; };
 		9DDCD3FF1D2A25B800646C00 /* LWTransitionAnimator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LWTransitionAnimator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DDCD4021D2A25B800646C00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DDCD4041D2A25B800646C00 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +76,10 @@
 				9DDCD4021D2A25B800646C00 /* AppDelegate.swift */,
 				9DDCD41A1D2AB25200646C00 /* NavigationController.swift */,
 				9DDCD4041D2A25B800646C00 /* ViewController.swift */,
+				9D4EF0511D2B5DA8007BD0B6 /* RippleViewController.swift */,
+				9D4EF0531D2B5E2D007BD0B6 /* FlipViewController.swift */,
+				9D4EF0551D2B5E3A007BD0B6 /* CurlViewController.swift */,
+				9D4EF0571D2B6C38007BD0B6 /* MagicMoveViewController.swift */,
 				9DDCD4061D2A25B800646C00 /* Main.storyboard */,
 				9DDCD4091D2A25B800646C00 /* Assets.xcassets */,
 				9DDCD40B1D2A25B800646C00 /* LaunchScreen.storyboard */,
@@ -167,9 +179,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D4EF0561D2B5E3A007BD0B6 /* CurlViewController.swift in Sources */,
+				9D4EF0541D2B5E2D007BD0B6 /* FlipViewController.swift in Sources */,
+				9D4EF0521D2B5DA8007BD0B6 /* RippleViewController.swift in Sources */,
 				9DDCD4051D2A25B800646C00 /* ViewController.swift in Sources */,
 				9DDCD4231D2AC6D200646C00 /* LWSystemTransitionAnimator.swift in Sources */,
 				9DDCD4031D2A25B800646C00 /* AppDelegate.swift in Sources */,
+				9D4EF0581D2B6C38007BD0B6 /* MagicMoveViewController.swift in Sources */,
 				9DDCD41B1D2AB25200646C00 /* NavigationController.swift in Sources */,
 				9DDCD4251D2AC95000646C00 /* LWMagicMoveAnimator.swift in Sources */,
 				9DDCD4161D2A7FC200646C00 /* LWTransitionAnimator.swift in Sources */,
@@ -290,6 +306,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = LWTransitionAnimator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.csym.LWTransitionAnimator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -303,6 +320,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = LWTransitionAnimator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.csym.LWTransitionAnimator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -329,6 +347,7 @@
 				9DDCD4131D2A25B800646C00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -9,7 +9,7 @@
 
 import UIKit
 
-private let kSystemTransitionDuration: NSTimeInterval = 0.5
+private let kSystemTransitionDuration: NSTimeInterval = 0.45
 
 class LWSystemTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 

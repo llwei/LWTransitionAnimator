@@ -8,8 +8,6 @@
 
 import UIKit
 
-private let kAnimateDuration: NSTimeInterval = 0.25
-
 class LWTransitionAnimator: NSObject, UINavigationControllerDelegate {
 
     // MARK: - Properteis
@@ -45,21 +43,17 @@ class LWTransitionAnimator: NSObject, UINavigationControllerDelegate {
             
         case .Cancelled, .Ended, .Failed:
             if progress >= 0.5 {
-                UIView.animateWithDuration(kAnimateDuration,
-                                           delay: 0,
-                                           options: .CurveEaseOut,
+                UIView.animateWithDuration(0.1,
                                            animations: { 
-                                                self.interactionController?.updateInteractiveTransition(1.0)
+                                            self.interactionController?.updateInteractiveTransition(1.0)
                     }, completion: { (_) in
                         self.interactionController?.finishInteractiveTransition()
                         self.interactionController = nil
                 })
                 
             } else {
-                UIView.animateWithDuration(kAnimateDuration,
-                                           delay: 0,
-                                           options: .CurveEaseOut,
-                                           animations: {
+                UIView.animateWithDuration(0.1,
+                                           animations: { 
                                             self.interactionController?.updateInteractiveTransition(0.0)
                     }, completion: { (_) in
                         self.interactionController?.cancelInteractiveTransition()
@@ -82,16 +76,42 @@ class LWTransitionAnimator: NSObject, UINavigationControllerDelegate {
         switch operation {
         case .Push:
             // TODO: Return .Push type transition animator here
-            if fromVC is ViewController {
-//                return LWRippleAnimator(rippleCenter: CGPoint(x: fromVC.view.bounds.width, y: 0))
+            if toVC is RippleViewController {
+                return LWRippleAnimator(rippleCenter: CGPoint(x: fromVC.view.bounds.width, y: 0))
+                
+            } else if toVC is FlipViewController {
+                return LWSystemTransitionAnimator(animationTransition: .FlipFromRight)
+                
+            } else if toVC is CurlViewController {
                 return LWSystemTransitionAnimator(animationTransition: .CurlUp)
+                
+            } else if toVC is MagicMoveViewController {
+                let vc = fromVC as! ViewController
+                return LWMagicMoveAnimator(sourceView: vc.imgButton,
+                                           content:vc.imgButton.currentBackgroundImage!,
+                                           targetFrame: CGRect(x: 0, y: 65, width: UIScreen.mainScreen().bounds.size.width, height: UIScreen.mainScreen().bounds.size.height - 64),
+                                           contentMode: .ScaleAspectFit)
             }
             return nil
+            
         case .Pop:
             // TODO: Return .Pop type transition animator here
-            if toVC is ViewController {
-//                return LWRippleAnimator(rippleCenter: CGPointZero)
+            if fromVC is RippleViewController {
+                return LWRippleAnimator(rippleCenter: CGPointZero)
+                
+            } else if fromVC is FlipViewController {
+                return LWSystemTransitionAnimator(animationTransition: .FlipFromLeft)
+                
+            } else if fromVC is CurlViewController {
                 return LWSystemTransitionAnimator(animationTransition: .CurlDown)
+                
+            } else if fromVC is MagicMoveViewController {
+                let from = fromVC as! MagicMoveViewController
+                let to = toVC as! ViewController
+                return LWMagicMoveAnimator(sourceView: from.imgView,
+                                           content:from.imgView.image!,
+                                           targetFrame: to.imgButton.frame,
+                                           contentMode: .ScaleAspectFit)
             }
             return nil
         default:

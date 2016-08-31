@@ -47,6 +47,7 @@ class LWRippleAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         containerView.addSubview(toVC.view)
         
         // Calculate initial radius and finial radius
+        rippleCenter = containerView.convertPoint(rippleCenter, toView: toVC.view)
         let initialRect = CGRect(x: rippleCenter.x - kMinRadius,
                                  y: rippleCenter.y - kMinRadius,
                                  width: 2 * kMinRadius,

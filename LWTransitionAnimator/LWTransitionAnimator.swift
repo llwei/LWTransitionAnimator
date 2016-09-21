@@ -14,11 +14,11 @@ class LWTransitionAnimator: NSObject, UINavigationControllerDelegate {
     
     @IBOutlet weak var navigationController: UINavigationController?
     
-    private var interactionController: UIPercentDrivenInteractiveTransition?
-    private lazy var edgePanGesture: UIScreenEdgePanGestureRecognizer = {
+    fileprivate var interactionController: UIPercentDrivenInteractiveTransition?
+    fileprivate lazy var edgePanGesture: UIScreenEdgePanGestureRecognizer = {
         let lazyGesture = UIScreenEdgePanGestureRecognizer(target: self,
                                                            action: #selector(LWTransitionAnimator.backActionForEdgePanGesture(_:)))
-        lazyGesture.edges = .Left
+        lazyGesture.edges = .left
         return lazyGesture
     }()
     
@@ -26,37 +26,37 @@ class LWTransitionAnimator: NSObject, UINavigationControllerDelegate {
     
     // MARK: - Target actions
     
-    func backActionForEdgePanGesture(sender: UIScreenEdgePanGestureRecognizer) {
+    func backActionForEdgePanGesture(_ sender: UIScreenEdgePanGestureRecognizer) {
         guard let navigationController = navigationController else {
             return
         }
         
-        let progress = sender.translationInView(navigationController.view).x / navigationController.view.bounds.size.width
+        let progress = sender.translation(in: navigationController.view).x / navigationController.view.bounds.size.width
         
         switch sender.state {
-        case .Began:
+        case .began:
             interactionController = UIPercentDrivenInteractiveTransition()
-            navigationController.popViewControllerAnimated(true)
+            navigationController.popViewController(animated: true)
             
-        case .Changed:
-            interactionController?.updateInteractiveTransition(progress)
+        case .changed:
+            interactionController?.update(progress)
             
-        case .Cancelled, .Ended, .Failed:
+        case .cancelled, .ended, .failed:
             if progress >= 0.5 {
-                UIView.animateWithDuration(0.1,
+                UIView.animate(withDuration: 0.1,
                                            animations: { 
-                                            self.interactionController?.updateInteractiveTransition(1.0)
+                                            self.interactionController?.update(1.0)
                     }, completion: { (_) in
-                        self.interactionController?.finishInteractiveTransition()
+                        self.interactionController?.finish()
                         self.interactionController = nil
                 })
                 
             } else {
-                UIView.animateWithDuration(0.1,
+                UIView.animate(withDuration: 0.1,
                                            animations: { 
-                                            self.interactionController?.updateInteractiveTransition(0.0)
+                                            self.interactionController?.update(0.0)
                     }, completion: { (_) in
-                        self.interactionController?.cancelInteractiveTransition()
+                        self.interactionController?.cancel()
                         self.interactionController = nil
                 })
             }
@@ -69,41 +69,41 @@ class LWTransitionAnimator: NSObject, UINavigationControllerDelegate {
     
     // MARK: - UINavigationControllerDelegate
     
-    func navigationController(navigationController: UINavigationController,
-                              animationControllerForOperation operation: UINavigationControllerOperation,
-                                                              fromViewController fromVC: UIViewController,
-                                                                                 toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func navigationController(_ navigationController: UINavigationController,
+                              animationControllerFor operation: UINavigationControllerOperation,
+                                                              from fromVC: UIViewController,
+                                                                                 to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         switch operation {
-        case .Push:
+        case .push:
             // TODO: Return .Push type transition animator here
             if toVC is RippleViewController {
                 return LWRippleAnimator(rippleCenter: CGPoint(x: fromVC.view.bounds.width, y: 0))
                 
             } else if toVC is FlipViewController {
-                return LWSystemTransitionAnimator(animationTransition: .FlipFromRight)
+                return LWSystemTransitionAnimator(animationTransition: .flipFromRight)
                 
             } else if toVC is CurlViewController {
-                return LWSystemTransitionAnimator(animationTransition: .CurlUp)
+                return LWSystemTransitionAnimator(animationTransition: .curlUp)
                 
             } else if toVC is MagicMoveViewController {
                 let vc = fromVC as! ViewController
                 return LWMagicMoveAnimator(sourceView: vc.imgButton,
                                            content:vc.imgButton.currentBackgroundImage!,
-                                           targetFrame: CGRect(x: 0, y: 65, width: UIScreen.mainScreen().bounds.size.width, height: UIScreen.mainScreen().bounds.size.height - 64),
-                                           contentMode: .ScaleAspectFit)
+                                           targetFrame: CGRect(x: 0, y: 65, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 64),
+                                           contentMode: .scaleAspectFit)
             }
             return nil
             
-        case .Pop:
+        case .pop:
             // TODO: Return .Pop type transition animator here
             if fromVC is RippleViewController {
-                return LWRippleAnimator(rippleCenter: CGPointZero)
+                return LWRippleAnimator(rippleCenter: CGPoint.zero)
                 
             } else if fromVC is FlipViewController {
-                return LWSystemTransitionAnimator(animationTransition: .FlipFromLeft)
+                return LWSystemTransitionAnimator(animationTransition: .flipFromLeft)
                 
             } else if fromVC is CurlViewController {
-                return LWSystemTransitionAnimator(animationTransition: .CurlDown)
+                return LWSystemTransitionAnimator(animationTransition: .curlDown)
                 
             } else if fromVC is MagicMoveViewController {
                 let from = fromVC as! MagicMoveViewController
@@ -111,7 +111,7 @@ class LWTransitionAnimator: NSObject, UINavigationControllerDelegate {
                 return LWMagicMoveAnimator(sourceView: from.imgView,
                                            content:from.imgView.image!,
                                            targetFrame: to.imgButton.frame,
-                                           contentMode: .ScaleAspectFit)
+                                           contentMode: .scaleAspectFit)
             }
             return nil
         default:
@@ -120,14 +120,14 @@ class LWTransitionAnimator: NSObject, UINavigationControllerDelegate {
     }
 
     
-    func navigationController(navigationController: UINavigationController,
-                              interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    func navigationController(_ navigationController: UINavigationController,
+                              interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactionController
     }
     
     
-    func navigationController(navigationController: UINavigationController,
-                              didShowViewController viewController: UIViewController,
+    func navigationController(_ navigationController: UINavigationController,
+                              didShow viewController: UIViewController,
                                                     animated: Bool) {
         if navigationController.viewControllers.count == 1 {
             navigationController.view.removeGestureRecognizer(edgePanGesture)

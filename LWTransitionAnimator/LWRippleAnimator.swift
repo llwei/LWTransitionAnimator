@@ -9,14 +9,14 @@
 
 import UIKit
 
-private let kRippleDuration: NSTimeInterval = 0.3
+private let kRippleDuration: TimeInterval = 0.3
 private let kMinRadius: CGFloat = 10.0
 
 
-class LWRippleAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+class LWRippleAnimator: NSObject, UIViewControllerAnimatedTransitioning, CAAnimationDelegate {
 
-    private weak var transitionContext: UIViewControllerContextTransitioning?
-    private var rippleCenter: CGPoint = CGPointZero
+    fileprivate weak var transitionContext: UIViewControllerContextTransitioning?
+    fileprivate var rippleCenter: CGPoint = CGPoint.zero
     
     init(rippleCenter: CGPoint) {
         super.init()
@@ -26,36 +26,32 @@ class LWRippleAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     // MARK: - UIViewControllerAnimatedTransitioning
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return kRippleDuration
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
 
-        guard let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) else {
+        guard let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) else {
             print("ToVC is nil")
             return
         }
-        guard let containerView = transitionContext.containerView() else {
-            print("ContainerView is nil")
-            return
-        }
-        
+        let containerView = transitionContext.containerView
         self.transitionContext = transitionContext
         
-        toVC.view.frame = transitionContext.finalFrameForViewController(toVC)
+        toVC.view.frame = transitionContext.finalFrame(for: toVC)
         containerView.addSubview(toVC.view)
         
         // Calculate initial radius and finial radius
-        rippleCenter = containerView.convertPoint(rippleCenter, toView: toVC.view)
+        rippleCenter = containerView.convert(rippleCenter, to: toVC.view)
         let initialRect = CGRect(x: rippleCenter.x - kMinRadius,
                                  y: rippleCenter.y - kMinRadius,
                                  width: 2 * kMinRadius,
                                  height: 2 * kMinRadius)
-        let minCircleMaskPath = UIBezierPath(ovalInRect: initialRect).CGPath
-        let extremeLength = max(CGRectGetHeight(toVC.view.bounds), CGRectGetWidth(toVC.view.bounds))
+        let minCircleMaskPath = UIBezierPath(ovalIn: initialRect).cgPath
+        let extremeLength = max(toVC.view.bounds.height, toVC.view.bounds.width)
         let extremeRadius = sqrt(rippleCenter.x * rippleCenter.x + extremeLength * extremeLength)
-        let maxCircleMaskPath = UIBezierPath(ovalInRect: CGRectInset(initialRect, -extremeRadius, -extremeRadius)).CGPath
+        let maxCircleMaskPath = UIBezierPath(ovalIn: initialRect.insetBy(dx: -extremeRadius, dy: -extremeRadius)).cgPath
         
         let maskLayer = CAShapeLayer()
         maskLayer.path = maxCircleMaskPath
@@ -65,16 +61,16 @@ class LWRippleAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let animation = CABasicAnimation(keyPath: "path")
         animation.fromValue = minCircleMaskPath
         animation.toValue = maxCircleMaskPath
-        animation.duration = transitionDuration(transitionContext)
+        animation.duration = transitionDuration(using: transitionContext)
         animation.delegate = self
-        maskLayer.addAnimation(animation, forKey: NSStringFromClass(LWRippleAnimator.self))
+        maskLayer.add(animation, forKey: NSStringFromClass(LWRippleAnimator.self))
         
     }
     
-    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         guard let transitionContext = transitionContext else { return }
-        transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)?.view.layer.mask = nil
-        transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
+        transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)?.view.layer.mask = nil
+        transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
     }
     
 

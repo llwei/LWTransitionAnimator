@@ -9,11 +9,11 @@
 
 import UIKit
 
-private let kSystemTransitionDuration: NSTimeInterval = 0.45
+private let kSystemTransitionDuration: TimeInterval = 0.45
 
 class LWSystemTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
-    private var transition: UIViewAnimationTransition
+    fileprivate var transition: UIViewAnimationTransition
     
     
     init(animationTransition: UIViewAnimationTransition) {
@@ -23,29 +23,26 @@ class LWSystemTransitionAnimator: NSObject, UIViewControllerAnimatedTransitionin
     
     // MARK: - UIViewControllerAnimatedTransitioning
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return kSystemTransitionDuration
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        guard let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) else {
+        guard let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) else {
             print("ToVC is nil")
             return
         }
-        guard let containerView = transitionContext.containerView() else {
-            print("ContainerView is nil")
-            return
-        }
+        let containerView = transitionContext.containerView
         
-        toVC.view.frame = transitionContext.finalFrameForViewController(toVC)
+        toVC.view.frame = transitionContext.finalFrame(for: toVC)
         containerView.addSubview(toVC.view)
         
-        UIView.animateWithDuration(transitionDuration(transitionContext), animations: {
-            UIView.setAnimationTransition(self.transition, forView: containerView, cache: true)
-        }) { (_) in
-            transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
-        }
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
+            UIView.setAnimationTransition(self.transition, for: containerView, cache: true)
+        }, completion: { (_) in
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        }) 
     }
     
 }

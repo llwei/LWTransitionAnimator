@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Iwm-5A-J6C">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Iwm-5A-J6C">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,25 +16,22 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSQ-8I-EIw">
-                                <rect key="frame" x="112" y="145" width="96" height="30"/>
                                 <state key="normal" title="FlipFromRight"/>
                                 <connections>
                                     <segue destination="A0S-iz-boU" kind="show" id="GFa-gr-LOa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fi1-kI-2PH">
-                                <rect key="frame" x="136" y="191" width="48" height="30"/>
                                 <state key="normal" title="CurlUp"/>
                                 <connections>
                                     <segue destination="PwM-2i-wpt" kind="show" id="gJI-EQ-0pQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zy-4Q-fes">
-                                <rect key="frame" x="60" y="328" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="4UT-NN-cRy"/>
                                     <constraint firstAttribute="height" constant="200" id="WZ3-cR-B4J"/>
@@ -44,14 +42,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgd-di-p8q">
-                                <rect key="frame" x="139" y="99" width="43" height="30"/>
                                 <state key="normal" title="Ripple"/>
                                 <connections>
                                     <segue destination="MHc-nY-a9s" kind="show" id="Uh4-Lg-4XJ"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.96868565070000001" green="1" blue="0.42614033499999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.96868565070000001" green="1" blue="0.42614033499999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Pgd-di-p8q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FKr-n0-PWC"/>
                             <constraint firstItem="mSQ-8I-EIw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JMv-xk-9Qh"/>
@@ -81,9 +78,9 @@
                         <viewControllerLayoutGuide type="bottom" id="ThY-ts-Ix9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="KAF-aB-QFX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Ripple" id="z78-KM-Sz3"/>
                 </viewController>
@@ -96,7 +93,6 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Iwm-5A-J6C" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="K08-ds-zce">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -125,9 +121,9 @@
                         <viewControllerLayoutGuide type="bottom" id="Sk7-0d-ee6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8dy-bk-dIt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Flip" id="ZrS-QA-v5V"/>
                 </viewController>
@@ -144,14 +140,12 @@
                         <viewControllerLayoutGuide type="bottom" id="BdD-Qv-nBH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gRl-Rf-iDO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic_temportrait_03" translatesAutoresizingMaskIntoConstraints="NO" id="l7z-kr-jaw">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic_temportrait_03" translatesAutoresizingMaskIntoConstraints="NO" id="l7z-kr-jaw"/>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="l7z-kr-jaw" secondAttribute="trailing" id="6fl-Uf-kx6"/>
                             <constraint firstItem="l7z-kr-jaw" firstAttribute="top" secondItem="jmX-l5-LAp" secondAttribute="bottom" id="RQ4-95-qVg"/>
@@ -176,9 +170,9 @@
                         <viewControllerLayoutGuide type="bottom" id="GfU-5w-eTe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uoE-uD-gnq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Curl" id="TEe-BO-eDw"/>
                 </viewController>

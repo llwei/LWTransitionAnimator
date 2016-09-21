@@ -9,14 +9,14 @@
 
 import UIKit
 
-private let kMagicMoveDuration: NSTimeInterval = 0.35
+private let kMagicMoveDuration: TimeInterval = 0.35
 
 class LWMagicMoveAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    private var sourceView: UIView!
-    private var content: UIImage!
-    private var targetFrame: CGRect!
-    private var contentMode = UIViewContentMode.ScaleAspectFit
+    fileprivate var sourceView: UIView!
+    fileprivate var content: UIImage!
+    fileprivate var targetFrame: CGRect!
+    fileprivate var contentMode = UIViewContentMode.scaleAspectFit
     
     init(sourceView: UIView, content: UIImage, targetFrame: CGRect, contentMode: UIViewContentMode) {
         super.init()
@@ -28,44 +28,41 @@ class LWMagicMoveAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     // MARK: - UIViewControllerAnimatedTransitioning
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return kMagicMoveDuration
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
 
-        guard let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) else {
+        guard let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) else {
             print("ToVC is nil")
             return
         }
-        guard let container = transitionContext.containerView() else {
-            print("Container is nil")
-            return
-        }
+        let container = transitionContext.containerView
 
         // Create a snaphot view to replace source view
         let snapshot = UIImageView(image: content)
         snapshot.contentMode = contentMode
-        snapshot.frame = container.convertRect(sourceView.frame, fromView: sourceView.superview)
-        sourceView.hidden = true
+        snapshot.frame = container.convert(sourceView.frame, from: sourceView.superview)
+        sourceView.isHidden = true
         
-        toVC.view.frame = transitionContext.finalFrameForViewController(toVC)
+        toVC.view.frame = transitionContext.finalFrame(for: toVC)
         toVC.view.alpha = 0.0
         container.addSubview(toVC.view)
         container.addSubview(snapshot)
         
         // Animate
-        UIView.animateWithDuration(transitionDuration(transitionContext),
+        UIView.animate(withDuration: transitionDuration(using: transitionContext),
                                    delay: 0.0,
-                                   options: .CurveEaseOut,
+                                   options: .curveEaseOut,
                                    animations: { 
                                     snapshot.frame = self.targetFrame
                                     toVC.view.alpha = 1.0
             }) { (_) in
-                self.sourceView.hidden = false
+                self.sourceView.isHidden = false
                 snapshot.removeFromSuperview()
                 
-                transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
     }
 

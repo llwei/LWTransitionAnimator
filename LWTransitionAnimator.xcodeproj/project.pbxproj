@@ -137,6 +137,7 @@
 					9DDCD3FE1D2A25B800646C00 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 4Q96HE7EKH;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -307,6 +308,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.csym.LWTransitionAnimator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c555d0b8-8e9e-4c71-a5d8-4d07ab9b59f1";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -321,6 +323,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.csym.LWTransitionAnimator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c555d0b8-8e9e-4c71-a5d8-4d07ab9b59f1";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
